@@ -22,9 +22,7 @@ class CustomTextField extends StatelessWidget {
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10)
         ),
-        hintText: customHolder,
-        hoverColor: Colors.blue,
-        fillColor: Colors.blue
+        hintText: customHolder
       ))
     );
   }
