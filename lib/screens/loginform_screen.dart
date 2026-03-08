@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:random_app/screens/home_screen.dart';
+import 'package:random_app/screens/registerform_screen.dart';
 import 'package:random_app/widgets/button.dart';
 import 'package:random_app/widgets/textfield.dart';
 
@@ -13,11 +14,21 @@ class LoginFormScreen extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            CustomTextField(CustomHolder: "Username"),
+            CustomTextField(customHolder: "Username"),
+            const SizedBox(height: 5),
+            CustomTextField(customHolder: "Password",obsure: true,),
+            const SizedBox(height: 15),
+            MainButton(text: "Login", onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const HomeScreen()))),
             const SizedBox(height: 10),
-            CustomTextField(CustomHolder: "Password"),
-            const SizedBox(height: 20),
-            MainButton(text: "Login", onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const HomeScreen())))
+            GestureDetector(
+              onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const RegisterFormScreen())),
+              child: const Text(
+                "Not have an account? Sign Up",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold
+                ),
+              ),
+            )
           ],
         ),
       )

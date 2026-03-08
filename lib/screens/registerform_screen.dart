@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:random_app/screens/home_screen.dart';
+import 'package:random_app/widgets/button.dart';
+import 'package:random_app/widgets/textfield.dart';
 
 class RegisterFormScreen extends StatelessWidget {
   const RegisterFormScreen({super.key});
@@ -6,8 +9,28 @@ class RegisterFormScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: const Center(
-        child: Text("Register Form Screen"),
+      body: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const CustomTextField(customHolder: "Username"),
+            const SizedBox(height: 5),
+            CustomTextField(customHolder: "Email"), 
+            const SizedBox(height: 5),
+            CustomTextField(customHolder: "Password", obsure: true),
+            const SizedBox(height: 15),
+            MainButton(text: "Register", onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const HomeScreen()))),
+            GestureDetector(
+              onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const RegisterFormScreen())),
+              child: const Text(
+                "Not have an account? Sign Up",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold
+                ),
+              ),
+            )
+          ],
+        )
       ),
     );
   }

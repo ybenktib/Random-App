@@ -11,11 +11,21 @@ class LoginScreen extends StatelessWidget {
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(40),
-        child: Align(
-          alignment: AlignmentGeometry.bottomCenter,
+        //child: Align(
+          //alignment: Alignment.center,
           child: Column(
-            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              const Spacer(),
+              Text(
+                "Logo",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+               const Spacer(),
               MainButton(
                 text: "Login", 
                 onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const LoginFormScreen())),
@@ -29,7 +39,7 @@ class LoginScreen extends StatelessWidget {
             ],
           ),
         ),
-      ),
-    );
+      );
+    //);
   }
 }
